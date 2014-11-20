@@ -1,0 +1,64 @@
+﻿@model IEnumerable<photoGallery.Models.Photo>
+
+@{
+   // ViewBag.Title = "Index";
+}
+
+@Html.Raw(TempData["Message"])
+<p>
+    @photoGallery.Utility.Utility4photoGallery.bootstrapActionLink(null, "Add Photo", "Add Photo", "Create", "Photos", "glyphicon-plus", null, null)
+    @photoGallery.Utility.Utility4photoGallery.bootstrapActionLink(null, "Manage Photo", "Manage Photo", "Manage", "Photos", "glyphicon-plus", null, null)
+</p>
+
+
+
+
+<div class="row" style=" margin-top: 0px;">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-6 col-md-3">
+            @{
+                <p>
+                    <a href="@(Url.Content("~/Content/PhotoGallery/" + item.Album.AlbumName + "/" + item.ImageName))" title="@Html.DisplayFor(modelItem => item.Title)" data-gallery="" class="thumbnail">
+                        <img src="@(Url.Content("~/Content/PhotoGallery/" + item.Album.AlbumName + "/" + item.ImageName))" border="0" style="border: 0px" class="img-thumbnail" />
+                    </a>
+                </p>
+            }
+        </div>
+    }
+</div>
+    <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery">
+        <!-- The container for the modal slides -->
+        <div class="slides"></div>
+        <!-- Controls for the borderless lightbox -->
+        <h3 class="title"></h3>
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="close">×</a>
+        <a class="play-pause"></a>
+        <ol class="indicator"></ol>
+        <!-- The modal dialog, which will be used to wrap the lightbox content -->
+        <div class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body next"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary pull-left prev">
+                            <i class="glyphicon glyphicon-chevron-left"></i>
+                            Previous
+                        </button>
+                        <button type="button" class="btn btn-primary next">
+                            Next
+                            <i class="glyphicon glyphicon-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

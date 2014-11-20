@@ -1,0 +1,33 @@
+﻿@model photoGallery.Models.Album
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Album</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AlbumName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlbumName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InsertedDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsertedDateTime)
+        </dd>
+    </dl>
+</div>
+<p>
+    @photoGallery.Utility.Utility4photoGallery.bootstrapActionLink(null, "", "Edit", "Edit", "Albums", "glyphicon-backward", new { id = Model.ID }, null) &nbsp;    
+    @Html.ActionLink("Back to List", "Index")
+</p>

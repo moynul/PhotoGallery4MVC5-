@@ -1,0 +1,45 @@
+﻿@model IEnumerable<photoGallery.Models.Photo>
+
+@{
+   // ViewBag.Title = "Index";
+}
+
+
+
+<br />
+<table class="table table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Album.AlbumName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InsertedDateTime)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Album.AlbumName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InsertedDateTime)
+            </td>
+            <td>
+                @photoGallery.Utility.Utility4photoGallery.bootstrapActionLink(null, "", "Edit", "Edit", "Photos", "glyphicon-pencil", new { id = item.ID }, null) &nbsp;
+                @photoGallery.Utility.Utility4photoGallery.bootstrapActionLink(null, "", "Details", "Details", "Photos", "glyphicon-list", new { id = item.ID }, null) &nbsp;
+                @photoGallery.Utility.Utility4photoGallery.bootstrapActionLink(null, "", "Delete", "Delete", "Photos", "glyphicon-floppy-remove", new { id = item.ID }, null)
+            </td>
+        </tr>
+    }
+
+</table>
+

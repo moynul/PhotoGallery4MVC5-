@@ -1,0 +1,34 @@
+﻿@model photoGallery.Models.Photo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Photo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Album.AlbumName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Album.AlbumName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    
+    @photoGallery.Utility.Utility4photoGallery.bootstrapActionLink(null, "Back to List", "Back to List", "Index", "Photos", "glyphicon-backward", null, null)
+</p>

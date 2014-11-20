@@ -1,0 +1,44 @@
+﻿
+@model IEnumerable<photoGallery.Models.Album>
+
+@{
+  //  ViewBag.Title = "Index";
+    
+}
+@Html.Raw(TempData["Message"])
+
+@*<p><a href="@Url.Action("Edit", new { id = 1 })"><i class="glyphicon glyphicon-pencil" title="Edit"></i><span class="sr-only">Edit</span></a></p>
+@Html.ActionLink("Create New Album", "Edit", new { id = 1 }, new { @class = "glyphicon glyphicon-pencil" })*@
+@photoGallery.Utility.Utility4photoGallery.bootstrapActionLink(null, "Create New Album", "Create New Album", "Create", "Albums", "glyphicon-plus", null, null)
+
+<div>&nbsp;</div>
+<table class="table table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AlbumName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InsertedDateTime)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlbumName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InsertedDateTime)
+            </td>
+            <td>
+                @photoGallery.Utility.Utility4photoGallery.bootstrapActionLink(null, "", "Edit", "Edit", "Albums", "glyphicon-pencil", new { id = item.ID }, null) &nbsp;
+                @photoGallery.Utility.Utility4photoGallery.bootstrapActionLink(null, "", "Details", "Details", "Albums", "glyphicon-list", new { id = item.ID }, null) &nbsp;
+                @photoGallery.Utility.Utility4photoGallery.bootstrapActionLink(null, "", "Delete", "Delete", "Albums", "glyphicon-floppy-remove", new { id = item.ID }, null)
+            </td>
+        </tr>
+    }
+
+</table>
